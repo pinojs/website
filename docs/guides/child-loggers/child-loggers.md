@@ -78,7 +78,7 @@ $ cat my-log
 Notice how there are two keys named `a` in the JSON output. The sub-child's properties
 appear after the parent child properties.
 
-At some point, the logs will most likely be processed (for instance with a [transport](transports)),
+At some point, the logs will most likely be processed (for instance with a [transport](/docs/next/guides/transports)),
 and this generally involves parsing. `JSON.parse` will return an object where the conflicting
 namespace holds the final value assigned to it:
 

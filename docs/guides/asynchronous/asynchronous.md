@@ -20,7 +20,7 @@ It's always possible to turn on synchronous logging by passing `sync: true`.
 In this mode of operation, log messages are directly written to the
 output stream as the messages are generated with a _blocking_ operation.
 
-* See [`pino.destination`](/docs/reference/api#pino-destination)
+* See [`pino.destination`](/docs/next/reference/api/#pinodestinationopts--sonicboom)
 * `pino.destination` is implemented on [`sonic-boom` ⇗](https://github.com/mcollina/sonic-boom).
 
 ### AWS Lambda
@@ -40,5 +40,5 @@ Asynchronous logging has a couple of important caveats:
 
 See also:
 
-* [`pino.destination` API](/docs/reference/api#pino-destination)
-* [`destination` parameter](/docs/reference/api#destination)
+* [`pino.destination` API](/docs/next/reference/api/#pinodestinationopts--sonicboom)
+* [`destination` parameter](/docs/next/reference/api#destination-number--string--object--destinationstream--sonicboomopts--writablestream)

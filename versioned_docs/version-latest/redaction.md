@@ -94,7 +94,7 @@ This will output
 {"level":30,"time":1527782356751,"pid":5758,"hostname":"Davids-MacBook-Pro-3.local","path":{"to":{"another":"thing"}},"stuff":{"thats":[{"logme":"will be logged"},{"logme":"as will this"}]}}
 ```
 
-See [pino options in API](/docs/reference/api#redact-array-object) for `redact` API details.
+See [pino options in API](/docs/next/reference/api/#redact-array--object) for `redact` API details.
 
 <a name="paths"></a>
 

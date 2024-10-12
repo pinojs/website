@@ -132,7 +132,7 @@ pino(transport)
 
 For more details on `pino.transport` see the [API docs for `pino.transport`][pino-transport].
 
-[pino-transport](docs/api/docs/reference/api#pino-transport)
+[pino-transport](/docs/next/reference/api/#pinotransportoptions--threadstream)
 [sca](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
 
 <a id="writing"></a>
@@ -340,7 +340,7 @@ The difference between using the `pino/file` transport builtin and using `pino.d
 
 #### `pino-pretty`
 
-The [`pino-pretty`](pino-pretty) transport prettifies logs.
+The [`pino-pretty`]/docs/next/guides/transports/#pino-pretty transport prettifies logs.
 
 By default the `pino-pretty` builtin logs to STDOUT.
 
@@ -418,7 +418,7 @@ PRs to this document are welcome for any new transports!
 
 ### Pino v7+ Compatible
 
-- [@logtail/pino](/docs/guides/transports#@logtail/pino)
+- [@logtail/pino](/docs/next/guides/transports/#logtailpino)
 - [pino-elasticsearch](#pino-elasticsearch)
 - [pino-pretty](#pino-pretty)
 - [pino-loki](#pino-loki)
@@ -429,7 +429,7 @@ PRs to this document are welcome for any new transports!
 - [pino-slack-webhook](#pino-slack-webhook)
 - [pino-axiom](#pino-axiom)
 - [pino-opentelemetry-transport](#pino-opentelemetry-transport)
-- [@axiomhq/pino](/docs/guides/transports#@axiomhq/pino)
+- [@axiomhq/pino](/docs/next/guides/transports/#axiomhqpino)
 - [pino-discord-webhook](#pino-discord-webhook)
 - [pino-logfmt](#pino-logfmt)
 - [pino-telegram-webhook](#pino-telegram-webhook)

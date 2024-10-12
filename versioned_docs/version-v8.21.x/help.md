@@ -29,7 +29,7 @@ We would rotate our log files with logrotate, by adding the following to `/etc/l
 
 The `copytruncate` configuration has a very slight possibility of lost log lines due
 to a gap between copying and truncating - the truncate may occur after additional lines
-have been written. To perform log rotation without `copytruncate`, see the [Reopening log files](/docs/guides/help#reopening)
+have been written. To perform log rotation without `copytruncate`, see the [Reopening log files](/docs/next/guides/help/#reopening-log-files)
 help.
 
 <a id="reopening"></a>
@@ -57,7 +57,7 @@ process.on('SIGHUP', () => dest.reopen())
 The log rotation tool can then be configured to send this signal to the process
 after a log rotation event has occurred.
 
-Given a similar scenario as in the [Log rotation](/docs/guides/help#rotate) section a basic
+Given a similar scenario as in the [Log rotation](/docs/next/guides/help#log-rotation) section a basic
 `logrotate` config that aligns with this strategy would look similar to the following:
 
 ```
@@ -79,7 +79,7 @@ Given a similar scenario as in the [Log rotation](/docs/guides/help#rotate) sect
 
 ## Saving to multiple files
 
-See [`pino.multistream`](/docs/api/docs/reference/api#pino-multistream).
+See [`pino.multistream`](/docs/next/reference/api/#pinomultistreamstreamsarray-opts--multistreamres).
 
 <a id="filter-logs"></a>
 
@@ -120,7 +120,7 @@ ExecStart=/bin/sh -c '/path/to/node app.js | pino-transport'
 
 Pino's default log destination is the singular destination of `stdout`. While
 not recommended for performance reasons, multiple destinations can be targeted
-by using [`pino.multistream`](/doc/api/docs/reference/api#pino-multistream).
+by using [`pino.multistream`](/docs/next/reference/api/#pinomultistreamstreamsarray-opts--multistreamres).
 
 In this example, we use `stderr` for `error` level logs and `stdout` as default
 for all other levels (e.g. `debug`, `info`, and `warn`).
@@ -275,7 +275,7 @@ To get pino logs into Grafana Loki there are two options:
 
 ## Avoid Message Conflict
 
-As described in the [`message` documentation](/docs/api/docs/reference/api#message), when a log
+As described in the [`message` documentation](/docs/next/reference/api#message-string), when a log
 is written like `log.info({ msg: 'a message' }, 'another message')` then the
 final output JSON will have `"msg":"another message"` and the `'a message'`
 string will be lost. To overcome this, the [`logMethod` hook](/docs/api#logmethod)

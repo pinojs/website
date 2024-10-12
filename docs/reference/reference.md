@@ -4,4 +4,4 @@ sidebar_position: 2
 
 # Reference
 
-- [API](/docs/reference/api)
+- [API](/docs/next/reference/api)
