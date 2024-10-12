@@ -128,7 +128,7 @@ pino(transport)
 
 For more details on `pino.transport` see the [API docs for `pino.transport`][pino-transport].
 
-[pino-transport]: /docs/api/docs/api#pino-transport
+[pino-transport]: /docs/api/docs/reference/api#pino-transport
 [sca]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 
 <a id="writing"></a>
@@ -414,7 +414,7 @@ PRs to this document are welcome for any new transports!
 
 ### Pino v7+ Compatible
 
-- [@logtail/pino](#@logtail/pino)
+- [@logtail/pino](/docs/guides/transports#@logtail/pino)
 - [pino-elasticsearch](#pino-elasticsearch)
 - [pino-pretty](#pino-pretty)
 - [pino-loki](#pino-loki)
@@ -425,7 +425,7 @@ PRs to this document are welcome for any new transports!
 - [pino-slack-webhook](#pino-slack-webhook)
 - [pino-axiom](#pino-axiom)
 - [pino-opentelemetry-transport](#pino-opentelemetry-transport)
-- [@axiomhq/pino](#@axiomhq/pino)
+- [@axiomhq/pino](/docs/guides/transports#@axiomhq/pino)
 - [pino-discord-webhook](#pino-discord-webhook)
 - [pino-logfmt](#pino-logfmt)
 - [pino-telegram-webhook](#pino-telegram-webhook)

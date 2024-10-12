@@ -3,7 +3,7 @@
 Since HTTP logging is a primary use case, Pino has first-class support for the Node.js
 web framework ecosystem.
 
-- [Web Frameworks](#web-frameworks)
+- [Web Frameworks](/docs/guides/web#web-frameworks)
   - [Pino with Fastify](#pino-with-fastify)
   - [Pino with Express](#pino-with-express)
   - [Pino with Hapi](#pino-with-hapi)

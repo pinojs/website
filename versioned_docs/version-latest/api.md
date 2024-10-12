@@ -5,8 +5,8 @@
 ## `pino([options], [destination]) => logger`
 
 The exported `pino` function takes two optional arguments,
-[`options`](#options) and [`destination`](/docs/api#destination), and
-returns a [logger instance](/docs/api#logger).
+[`options`](#options) and [`destination`](/docs/reference/api#destination), and
+returns a [logger instance](/docs/reference/api#logger).
 
 ### `options` (Object)
 
@@ -26,7 +26,7 @@ One of `'fatal'`, `'error'`, `'warn'`, `'info'`, `'debug'`, `'trace'` or `'silen
 
 Additional levels can be added to the instance via the `customLevels` option.
 
-* See [`customLevels` option](/docs/api#opt-customlevels)
+* See [`customLevels` option](/docs/reference/api#opt-customlevels)
 
 #### `levelComparison` ("ASC", "DESC", Function)
 
@@ -130,7 +130,7 @@ logger.info('world')
 
 The result of `mixin()` is supposed to be a _new_ object. For performance reason, the object returned by `mixin()` will be mutated by pino.
 In the following example, passing `mergingObject` argument to the first `info` call will mutate the global `mixin` object by default:
-(* See [`mixinMergeStrategy` option](/docs/api/docs/api#opt-mixin-merge-strategy)):
+(* See [`mixinMergeStrategy` option](/docs/api/docs/reference/api#opt-mixin-merge-strategy)):
 
 ```js
 const mixin = {
@@ -205,7 +205,7 @@ child.info('this will have both `foo: 1` and `bar: 2`')
 logger.info('this will still only have `foo: 1`')
 ```
 
-As of pino 7.x, when the `mixin` is used with the [`nestedKey` option](/docs/api#opt-nestedkey),
+As of pino 7.x, when the `mixin` is used with the [`nestedKey` option](/docs/reference/api#opt-nestedkey),
 the object returned from the `mixin` method will also be nested. Prior versions would mix
 this object into the root.
 
@@ -231,7 +231,7 @@ Default: `undefined`
 
 If provided, the `mixinMergeStrategy` function is called each time one of the active
 logging methods is called. The first parameter is the value `mergeObject` or an empty object,
-the second parameter is the value resulting from `mixin()` (* See [`mixin` option](/docs/api#opt-mixin) or an empty object.
+the second parameter is the value resulting from `mixin()` (* See [`mixin` option](/docs/reference/api#opt-mixin) or an empty object.
 The function must synchronously return an object.
 
 ```js
@@ -298,7 +298,7 @@ Each path must be a string using a syntax that corresponds to JavaScript dot and
 
 If an object is supplied, three options can be specified:
 
-* `paths` (array): Required. An array of paths. See [redaction - Path Syntax ⇗](/docs/redaction#paths) for specifics.
+* `paths` (array): Required. An array of paths. See [redaction - Path Syntax ⇗](/docs/guides/redaction#paths) for specifics.
 * `censor` (String|Function|Undefined): Optional. When supplied as a String the `censor` option will overwrite keys that are to be redacted. When set to `undefined` the key will be removed entirely from the object.
     The `censor` option may also be a mapping function. The (synchronous) mapping function has the signature `(value, path) => redactedValue` and is called with the unredacted `value` and `path` to the key being redacted, as an array. For example given a redaction path of `a.b.c` the `path` argument would be `['a', 'b', 'c']`. The value returned from the mapping function becomes the applied censor value. Default: `'[Redacted]'`
     value synchronously.
@@ -374,7 +374,7 @@ const formatters = {
 
 Changes the shape of the bindings. The default shape is `{ pid, hostname }`.
 The function takes a single argument, the bindings object, which can be configured
-using the [`base` option](/docs/api#opt-base). Called once when creating logger.
+using the [`base` option](/docs/reference/api#opt-base). Called once when creating logger.
 
 ```js
 const formatters = {
@@ -415,7 +415,7 @@ in the serializers. The only exception is the `err` serializer as it is also app
 the object is an instance of `Error`, e.g. `logger.info(new Error('kaboom'))`.
 See `errorKey` option to change `err` namespace.
 
-* See [pino.stdSerializers](/docs/api#pino-stdserializers)
+* See [pino.stdSerializers](/docs/reference/api#pino-stdserializers)
 
 #### `msgPrefix` (String)
 
@@ -469,7 +469,7 @@ representation of the time, e.g. `,"time":1493426328206` (which is the default).
 
 If set to `false`, no timestamp will be included in the output.
 
-See [stdTimeFunctions](/docs/api#pino-stdtimefunctions) for a set of available functions
+See [stdTimeFunctions](/docs/reference/api#pino-stdtimefunctions) for a set of available functions
 for passing in as a value for this option.
 
 Example:
@@ -536,7 +536,7 @@ documented in the [Browser API ⇗](/docs/browser) documentation.
 
 #### `transport` (Object)
 
-The `transport` option is a shorthand for the [pino.transport()](/docs/api#pino-transport) function.
+The `transport` option is a shorthand for the [pino.transport()](/docs/reference/api#pino-transport) function.
 It supports the same input options:
 
 ```js
@@ -557,7 +557,7 @@ require('pino')({
 })
 ```
 
-If the transport option is supplied to `pino`, a [`destination`](/docs/api#destination) parameter may not also be passed as a separate argument to `pino`:
+If the transport option is supplied to `pino`, a [`destination`](/docs/reference/api#destination) parameter may not also be passed as a separate argument to `pino`:
 
 ```js
 pino({ transport: {}}, '/path/to/somewhere') // THIS WILL NOT WORK, DO NOT DO THIS
@@ -566,7 +566,7 @@ pino({ transport: {}}, process.stderr) // THIS WILL NOT WORK, DO NOT DO THIS
 
 when using the `transport` option. In this case, an `Error` will be thrown.
 
-* See [pino.transport()](/docs/api#pino-transport)
+* See [pino.transport()](/docs/reference/api#pino-transport)
 
 #### `onChild` (Function)
 
@@ -623,7 +623,7 @@ Note: If the parameter is a string integer, e.g. `'1'`, it will be coerced to
 a number and used as a file descriptor. If this is not desired, provide a full
 path, e.g. `/tmp/1`.
 
-* See [`pino.destination`](/docs/api#pino-destination)
+* See [`pino.destination`](/docs/reference/api#pino-destination)
 
 <a id="metadata"></a>
 
@@ -662,7 +662,7 @@ console.log(
 ## Logger Instance
 
 The logger instance is the object returned by the main exported
-[`pino`](#export) function.
+[`pino`](/docs/reference/api#export) function.
 
 The primary purpose of the logger instance is to provide logging methods.
 
@@ -731,8 +731,8 @@ the following placeholders:
 Values supplied as additional arguments to the logger method will
 then be interpolated accordingly.
 
-* See [`messageKey` pino option](/docs/api#opt-messagekey)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`messageKey` pino option](/docs/reference/api#opt-messagekey)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="interpolationvalues"></a>
 
@@ -773,7 +773,7 @@ function logMethod (args, method) {
 const logger = pino(pinoOptions)
 ```
 
-* See [`message` log method parameter](/docs/api#message)
+* See [`message` log method parameter](/docs/reference/api#message)
 * See [`logMethod` hook](#logmethod)
 
 <a id="error-serialization"></a>
@@ -788,7 +788,7 @@ from `err` to another string as preferred.
 > ## Note
 >
 > This section describes the default configuration. The error serializer can be
-> mapped to a different key using the [`serializers`](/docs/api#opt-serializers) option.
+> mapped to a different key using the [`serializers`](/docs/reference/api#opt-serializers) option.
 
 ```js
 logger.info(new Error("test"))
@@ -804,9 +804,9 @@ logger.info({ err: new Error("test"), otherkey: 123 }, "some text")
 
 Write a `'trace'` level log, if the configured [`level`](#level) allows for it.
 
-* See [`mergingObject` log method parameter](#mergingobject)
-* See [`message` log method parameter](/docs/api#message)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`mergingObject` log method parameter](/docs/reference/api#mergingobject)
+* See [`message` log method parameter](/docs/reference/api#message)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="debug"></a>
 
@@ -814,9 +814,9 @@ Write a `'trace'` level log, if the configured [`level`](#level) allows for it.
 
 Write a `'debug'` level log, if the configured `level` allows for it.
 
-* See [`mergingObject` log method parameter](#mergingobject)
-* See [`message` log method parameter](/docs/api#message)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`mergingObject` log method parameter](/docs/reference/api#mergingobject)
+* See [`message` log method parameter](/docs/reference/api#message)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="info"></a>
 
@@ -824,9 +824,9 @@ Write a `'debug'` level log, if the configured `level` allows for it.
 
 Write an `'info'` level log, if the configured `level` allows for it.
 
-* See [`mergingObject` log method parameter](#mergingobject)
-* See [`message` log method parameter](/docs/api#message)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`mergingObject` log method parameter](/docs/reference/api#mergingobject)
+* See [`message` log method parameter](/docs/reference/api#message)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="warn"></a>
 
@@ -834,9 +834,9 @@ Write an `'info'` level log, if the configured `level` allows for it.
 
 Write a `'warn'` level log, if the configured `level` allows for it.
 
-* See [`mergingObject` log method parameter](#mergingobject)
-* See [`message` log method parameter](/docs/api#message)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`mergingObject` log method parameter](/docs/reference/api#mergingobject)
+* See [`message` log method parameter](/docs/reference/api#message)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="error"></a>
 
@@ -844,9 +844,9 @@ Write a `'warn'` level log, if the configured `level` allows for it.
 
 Write a `'error'` level log, if the configured `level` allows for it.
 
-* See [`mergingObject` log method parameter](#mergingobject)
-* See [`message` log method parameter](/docs/api#message)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`mergingObject` log method parameter](/docs/reference/api#mergingobject)
+* See [`message` log method parameter](/docs/reference/api#message)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="fatal"></a>
 
@@ -861,9 +861,9 @@ it will cause performance overhead if used for any
 other purpose than writing final log messages before
 the process crashes or exits.
 
-* See [`mergingObject` log method parameter](#mergingobject)
-* See [`message` log method parameter](/docs/api#message)
-* See [`...interpolationValues` log method parameter](#interpolationvalues)
+* See [`mergingObject` log method parameter](/docs/reference/api#mergingobject)
+* See [`message` log method parameter](/docs/reference/api#message)
+* See [`...interpolationValues` log method parameter](/docs/reference/api#interpolationvalues)
 
 <a id="silent"></a>
 
@@ -915,7 +915,7 @@ Options for child logger. These options will override the parent logger options.
 
 The `level` property overrides the log level of the child logger.
 By default, the parent log level is inherited.
-After the creation of the child logger, it is also accessible using the [`logger.level`](/docs/api#logger-level) key.
+After the creation of the child logger, it is also accessible using the [`logger.level`](/docs/reference/api#logger-level) key.
 
 ```js
 const logger = pino()
@@ -957,11 +957,11 @@ logger.info({ hello: 'world' })
 // {"level":30,"time":1625794553558,"pid":67930,"hostname":"x","hello":"world", "foo": "[Redacted]" }
 ```
 
-* See [`redact` option](/docs/api#opt-redact)
+* See [`redact` option](/docs/reference/api#opt-redact)
 
 ##### `options.serializers` (Object)
 
-Child loggers inherit the [serializers](/docs/api#opt-serializers) from the parent logger.
+Child loggers inherit the [serializers](/docs/reference/api#opt-serializers) from the parent logger.
 
 Setting the `serializers` key of the `options` object will override
 any configured parent serializers.
@@ -975,8 +975,8 @@ child.info({test: 'will be overwritten'})
 // {"level":30,"time":1531259784008,"pid":67930,"hostname":"x","test":"child-only serializer"}
 ```
 
-* See [`serializers` option](/docs/api#opt-serializers)
-* See [pino.stdSerializers](/docs/api#pino-stdserializers)
+* See [`serializers` option](/docs/reference/api#opt-serializers)
+* See [pino.stdSerializers](/docs/reference/api#pino-stdserializers)
 
 <a id="logger-bindings"></a>
 
@@ -1002,7 +1002,7 @@ Adds to the bindings of this logger instance.
 **Note:** Does not overwrite bindings. Can potentially result in duplicate keys in
 log lines.
 
-* See [`bindings` parameter in `logger.child`](/docs/api#logger-child-bindings)
+* See [`bindings` parameter in `logger.child`](/docs/reference/api#logger-child-bindings)
 
 <a id="flush"></a>
 
@@ -1022,7 +1022,7 @@ and safer logging at low demand periods.
 
 If there is a need to wait for the logs to be flushed, a callback should be used.
 
-* See [`destination` parameter](/docs/api#destination)
+* See [`destination` parameter](/docs/reference/api#destination)
 * See [Asynchronous Logging ⇗](/docs/asynchronous)
 
 <a id="logger-level"></a>
@@ -1164,7 +1164,7 @@ logger.level = 'trace' // trigger event using actual value change, notice consol
 
 Exposes the Pino package version. Also available on the exported `pino` function.
 
-* See [`pino.version`](/docs/api#pino-version)
+* See [`pino.version`](/docs/reference/api#pino-version)
 
 ## Statics
 
@@ -1196,11 +1196,11 @@ By default, `pino.destination` will use `process.stdout.fd` (1) as the file desc
 `pino.destination` is implemented on [`sonic-boom` ⇗](https://github.com/mcollina/sonic-boom).
 
 A `pino.destination` instance can also be used to reopen closed files
-(for example, for some log rotation scenarios), see [Reopening log files](/docs/help#reopening).
+(for example, for some log rotation scenarios), see [Reopening log files](/docs/help/docs/guides/help#reopening).
 
-* See [`destination` parameter](/docs/api#destination)
+* See [`destination` parameter](/docs/reference/api#destination)
 * See [`sonic-boom` ⇗](https://github.com/mcollina/sonic-boom)
-* See [Reopening log files](/docs/help#reopening)
+* See [Reopening log files](/docs/help/docs/guides/help#reopening)
 * See [Asynchronous Logging ⇗](/docs/asynchronous)
 
 <a id="pino-transport"></a>
@@ -1313,7 +1313,7 @@ For more on transports, how they work, and how to create them see the [`Transpor
 * `worker`: [Worker thread](https://nodejs.org/api/worker_threads.html#worker_threads_new_worker_filename_options) configuration options. Additionally, the `worker` option supports `worker.autoEnd`. If this is set to `false` logs will not be flushed on process exit. It is then up to the developer to call `transport.end()` to flush logs.
 * `targets`: May be specified instead of `target`. Must be an array of transport configurations and/or pipelines. Transport configurations include the aforementioned `options` and `target` options plus a `level` option which will send only logs above a specified level to a transport.
 * `pipeline`: May be specified instead of `target`. Must be an array of transport configurations. Transport configurations include the aforementioned `options` and `target` options. All intermediate steps in the pipeline _must_ be `Transform` streams and not `Writable`.
-* `dedupe`: See [pino.multistream options](/docs/api#pino-multistream)
+* `dedupe`: See [pino.multistream options](/docs/reference/api#pino-multistream)
 
 <a id="pino-multistream"></a>
 
@@ -1397,7 +1397,7 @@ The `pino.stdSerializers` object provides functions for serializing objects comm
 
 ### `pino.stdTimeFunctions` (Object)
 
-The [`timestamp`](/docs/api#opt-timestamp) option can accept a function that determines the
+The [`timestamp`](/docs/reference/api#opt-timestamp) option can accept a function that determines the
 `timestamp` value in a log line.
 
 The `pino.stdTimeFunctions` object provides a very small set of common functions for generating the
@@ -1408,7 +1408,7 @@ The `pino.stdTimeFunctions` object provides a very small set of common functions
 * `pino.stdTimeFunctions.nullTime`: Clears timestamp property (Used when `timestamp: false`)
 * `pino.stdTimeFunctions.isoTime`: ISO 8601-formatted time in UTC
 
-* See [`timestamp` option](/docs/api#opt-timestamp)
+* See [`timestamp` option](/docs/reference/api#opt-timestamp)
 
 <a id="pino-symbols"></a>
 
@@ -1429,7 +1429,7 @@ for general use.
 
 Exposes the Pino package version. Also available on the logger instance.
 
-* See [`logger.version`](/docs/api#version)
+* See [`logger.version`](/docs/reference/api#version)
 
 ## Interfaces
 
@@ -1446,7 +1446,7 @@ Exposes the Pino package version. Also available on the logger instance.
  Write `data` onto the streams held by the current instance.
 
 * `add(dest)`
-  * `dest` [StreamEntry](#streamentry) | [DestinationStream](/docs/api#destinationstream)
+  * `dest` [StreamEntry](#streamentry) | [DestinationStream](/docs/reference/api#destinationstream)
   * Returns: [MultiStreamRes](#multistreamres)
 
  Add `dest` stream to the array of streams of the current instance.
