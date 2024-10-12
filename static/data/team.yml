@@ -1,0 +1,32 @@
+# Use https://caius.github.io/github_id/ to determine the githubId
+
+- name: The Team
+  people:
+    - name: Matteo Collina
+      sortname: Collina Matteo
+      githubId: "52195"
+      links:
+        github: https://github.com/mcollina
+        npm: https://www.npmjs.com/~matteo.collina
+        twitter: https://twitter.com/matteocollina
+    - name: James Sumners
+      sortname: Sumners James
+      githubId: "321201"
+      links:
+        github: https://github.com/jsumners
+        npm: https://www.npmjs.com/~jsumners
+        twitter: https://twitter.com/jsumners79
+    - name: David Mark Clements
+      sortname: Clements David Mark
+      githubId: "1190716"
+      links:
+        github: https://github.com/davidmarkclements
+        npm: https://www.npmjs.com/~davidmarkclements
+        twitter: https://twitter.com/davidmarkclem
+    - name: Thomas Watson Steen
+      sortname: Thomas Watson Steen
+      githubId: "10602"
+      links:
+        github: https://github.com/watson
+        npm: https://www.npmjs.com/~watson
+        twitter: https://twitter.com/wa7son
